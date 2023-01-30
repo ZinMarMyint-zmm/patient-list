@@ -5,11 +5,10 @@ import del from "../assets/delete.png";
 import edit from "../assets/edit.png";
 import { useContext } from "react";
 import { DataContext } from "../App";
-import EditModal from "./EditModal";
 import { TableContext } from "./Table";
 
 const MoreModal = ({ id }) => {
-  const [, , showModal, setShowModal] = useContext(DataContext);
+  const [datas, setDatas, showModal, setShowModal] = useContext(DataContext);
   const [moreModal, setMoreModal] = useState(false);
   const [
     showEditModal,
@@ -30,16 +29,28 @@ const MoreModal = ({ id }) => {
     setStatus,
     breed,
     setBreed,
+    editId,
+    setEditId,
   ] = useContext(TableContext);
-  const [datas, setDatas] = useContext(DataContext);
 
   const handleDelete = () => {
     setDatas(datas.filter((i) => i.id != id));
   };
 
   const handleEdit = () => {
-    console.log(id);
+    const newData = datas.find((p) => p.id === id);
+    const newId = newData.id;
+    setPetName(newData.petName);
+    setPawrent(newData.pawRent);
+    setPhno(newData.phno);
+    setDate(newData.date);
+    setAddress(newData.address);
+    setGender(newData.address);
+    setStatus(newData.status);
+    setBreed(newData.breed);
+    setEditId(id);
     setShowEditModal(true);
+    return newData;
   };
 
   return (

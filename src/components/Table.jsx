@@ -3,7 +3,7 @@ import MoreModal from "./MoreModal";
 import { useContext } from "react";
 import { DataContext } from "../App";
 import EditModal from "./EditModal";
-export const TableContext = createContext(null);
+export const TableContext = createContext();
 const Table = () => {
   const [datas, setDatas] = useContext(DataContext);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -16,6 +16,8 @@ const Table = () => {
   const [gender, setGender] = useState("default");
   const [status, setStatus] = useState("default");
   const [breed, setBreed] = useState("default");
+  const [editId, setEditId] = useState(null);
+
   return (
     <div>
       <TableContext.Provider
@@ -38,6 +40,8 @@ const Table = () => {
           setStatus,
           breed,
           setBreed,
+          editId,
+          setEditId,
         ]}
       >
         <table className="table-auto w-full text-sm text-left px-3">
@@ -67,7 +71,7 @@ const Table = () => {
                 <td className="px-1 py-3">{data.breed}</td>
                 <td className="px-1 py-3">{data.gender}</td>
                 <td className="px-1 py-3">{data.date}</td>
-                <td className="px-1 py-3">{data.phNo}</td>
+                <td className="px-1 py-3">{data.phno}</td>
                 <td className="px-1 py-3">{data.address}</td>
                 <td className="py-3 pr-3">
                   <MoreModal id={data.id} />

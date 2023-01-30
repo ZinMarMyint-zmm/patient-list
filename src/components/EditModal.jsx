@@ -1,13 +1,55 @@
 import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { Form } from "react-router-dom";
 import { DataContext } from "../App";
 import { TableContext } from "./Table";
 
 const EditModal = () => {
   const [datas, setDatas, showModal, setShowModal] = useContext(DataContext);
-  const [showEditModal, setShowEditModal] = useContext(TableContext);
-  //   console.log(editDatas.petName);
+  const [
+    showEditModal,
+    setShowEditModal,
+    petName,
+    setPetName,
+    pawRent,
+    setPawrent,
+    phno,
+    setPhno,
+    date,
+    setDate,
+    address,
+    setAddress,
+    gender,
+    setGender,
+    status,
+    setStatus,
+    breed,
+    setBreed,
+    editId,
+    setEditId,
+  ] = useContext(TableContext);
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const newData = {
+      id: editId,
+      petName,
+      pawRent,
+      phno,
+      date,
+      address,
+      gender,
+      status,
+      breed,
+    };
+    const newList = datas.map((p) => {
+      if (p.id === editId) {
+        p = { ...newData };
+        return p;
+      }
+      return p;
+    });
+    setDatas([...newList]);
+  };
   return (
     <div>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -34,6 +76,8 @@ const EditModal = () => {
                   <label htmlFor="">Pet Name</label>
                   <br />
                   <input
+                    value={petName}
+                    onChange={(e) => setPetName(e.target.value)}
                     type="text"
                     className="border w-[180px] h-6 border-topbar"
                   />
@@ -43,6 +87,8 @@ const EditModal = () => {
                   <label htmlFor="">Pawrent</label>
                   <br />
                   <input
+                    value={pawRent}
+                    onChange={(e) => setPawrent(e.target.value)}
                     type="text"
                     className="border w-[180px] h-6 border-topbar"
                   />
@@ -51,7 +97,11 @@ const EditModal = () => {
                 <div className="mb-3">
                   <label htmlFor="">Gender</label>
                   <br />
-                  <select className="border w-[180px] h-6 border-topbar">
+                  <select
+                    className="border w-[180px] h-6 border-topbar"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  >
                     <option value="default"></option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -62,6 +112,8 @@ const EditModal = () => {
                   <label htmlFor="">Contact Phone No.</label>
                   <br />
                   <input
+                    value={phno}
+                    onChange={(e) => setPhno(e.target.value)}
                     type="text"
                     className="border w-[180px] h-6 border-topbar"
                   />
@@ -70,7 +122,11 @@ const EditModal = () => {
                 <div className="mb-3">
                   <label htmlFor="">Status</label>
                   <br />
-                  <select className="border w-[180px] h-6 border-topbar">
+                  <select
+                    className="border w-[180px] h-6 border-topbar"
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                  >
                     <option value="default">Select choose status</option>
                     <option value="allergy">Allergy</option>
                     <option value="pickyeater">PickyEater</option>
@@ -80,7 +136,11 @@ const EditModal = () => {
                 <div className="mb-3">
                   <label htmlFor="">Breed</label>
                   <br />
-                  <select className="border w-[180px] h-6 border-topbar">
+                  <select
+                    className="border w-[180px] h-6 border-topbar"
+                    value={breed}
+                    onChange={(e) => setBreed(e.target.value)}
+                  >
                     <option value="default">please choose status</option>
                     <option value="beagle">Beagle</option>
                     <option value="spaniel">Spaniel</option>
@@ -92,6 +152,8 @@ const EditModal = () => {
                   <label htmlFor="">Date of Birth</label>
                   <br />
                   <input
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
                     type="date"
                     className="border w-[180px] h-6 border-topbar"
                   />
@@ -101,6 +163,8 @@ const EditModal = () => {
                   <label htmlFor="">Address</label>
                   <br />
                   <input
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                     type="text"
                     className="border w-[180px] h-6 border-topbar"
                   />
@@ -108,6 +172,7 @@ const EditModal = () => {
               </div>
               <div className="flex items-center justify-center p-6 rounded-b">
                 <button
+                  onClick={handleUpdate}
                   className="bg-topbar text-white text-sm px-5 py-2 mr-3 ease-linear transition-all duration-150"
                   type="submit"
                 >

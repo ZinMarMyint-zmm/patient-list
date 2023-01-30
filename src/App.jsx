@@ -14,8 +14,8 @@ function App() {
       pawRent: "Cherry",
       breed: "beagle",
       gender: "male",
-      date: dateTime,
-      phNo: "09224466887",
+      date: "2022-12-12",
+      phno: "09224466887",
       address: "Yangon",
     },
     {
@@ -25,8 +25,8 @@ function App() {
       pawRent: "Kabyar",
       breed: "spaniel",
       gender: "male",
-      date: dateTime,
-      phNo: "09334466887",
+      date: "2022-12-12",
+      phno: "09334466887",
       address: "Mandalay",
     },
   ]);
