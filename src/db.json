@@ -1,0 +1,27 @@
+{ 
+    "datas" :[
+        {
+      "id": 1,
+      "petName": "Joh",
+      "status": "allergy",
+      "pawRent": "Cherry",
+      "breed": "beagle",
+      "gender": "male",
+      "date": "2022-12-12",
+      "phno": "09224466887",
+      "address": "Yangon"
+    },
+    {
+      "id": 2,
+      "petName": "Jaki",
+      "status": "pickyeater",
+      "pawRent": "Kabyar",
+      "breed": "spaniel",
+      "gender": "female",
+      "date": "2022-12-12",
+      "phno": "09334466887",
+      "address": "Mandalay"
+    }
+    ]
+
+}
