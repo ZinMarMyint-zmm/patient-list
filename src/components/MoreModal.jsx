@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { DataContext } from "../App";
 import { TableContext } from "./Table";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MoreModal = ({ id }) => {
   const [datas, setDatas] = useContext(DataContext);
@@ -40,11 +41,12 @@ const MoreModal = ({ id }) => {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
+      cancelButtonColor: "#54BAB9",
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
         setDatas(datas.filter((i) => i.id != id));
+        axios.delete(`http://localhost:3000/datas/${id}`);
       }
     });
   };

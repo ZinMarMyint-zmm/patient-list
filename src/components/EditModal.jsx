@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { DataContext } from "../App";
@@ -49,6 +50,7 @@ const EditModal = () => {
       return p;
     });
     setDatas([...newList]);
+    axios.put(`http://localhost:3000/datas/${editId}`, newData);
     setShowEditModal(false);
   };
   return (

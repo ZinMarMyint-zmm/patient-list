@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { useState } from "react";
 import { DataContext } from "../App";
@@ -19,13 +20,14 @@ const Form = ({ onClose }) => {
     data.id = datas.length + 1;
     data.petName = petName;
     data.pawRent = pawRent;
-    data.phNo = phno;
+    data.phno = phno;
     data.date = date;
     data.address = address;
     data.gender = gender;
     data.status = status;
     data.breed = breed;
     setDatas([...datas, data]);
+    axios.post("http://localhost:3000/datas", data);
   };
 
   const handleClose = () => {

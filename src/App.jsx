@@ -1,35 +1,21 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import axios from "axios";
 export const DataContext = createContext(null);
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const dateTime = new Date().toLocaleTimeString();
-  const [datas, setDatas] = useState([
-    {
-      id: 1,
-      petName: "Joh",
-      status: "allergy",
-      pawRent: "Cherry",
-      breed: "beagle",
-      gender: "male",
-      date: "2022-12-12",
-      phno: "09224466887",
-      address: "Yangon",
-    },
-    {
-      id: 2,
-      petName: "Jaki",
-      status: "pickyeater",
-      pawRent: "Kabyar",
-      breed: "spaniel",
-      gender: "female",
-      date: "2022-12-12",
-      phno: "09334466887",
-      address: "Mandalay",
-    },
-  ]);
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get("http://localhost:3000/datas");
+      setDatas([...data]);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="">
       <DataContext.Provider value={[datas, setDatas, showModal, setShowModal]}>
