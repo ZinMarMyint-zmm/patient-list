@@ -6,35 +6,47 @@ import edit from "../assets/edit.png";
 import { useContext } from "react";
 import { DataContext } from "../App";
 import { TableContext } from "./Table";
+import Swal from "sweetalert2";
 
 const MoreModal = ({ id }) => {
-  const [datas, setDatas, showModal, setShowModal] = useContext(DataContext);
+  const [datas, setDatas] = useContext(DataContext);
   const [moreModal, setMoreModal] = useState(false);
   const [
-    showEditModal,
+    ,
     setShowEditModal,
-    petName,
+    ,
     setPetName,
-    pawRent,
+    ,
     setPawrent,
-    phno,
+    ,
     setPhno,
-    date,
+    ,
     setDate,
-    address,
+    ,
     setAddress,
-    gender,
+    ,
     setGender,
-    status,
+    ,
     setStatus,
-    breed,
+    ,
     setBreed,
-    editId,
+    ,
     setEditId,
   ] = useContext(TableContext);
 
   const handleDelete = () => {
-    setDatas(datas.filter((i) => i.id != id));
+    Swal.fire({
+      title: "Are you sure want to Delete?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setDatas(datas.filter((i) => i.id != id));
+      }
+    });
   };
 
   const handleEdit = () => {
@@ -45,7 +57,7 @@ const MoreModal = ({ id }) => {
     setPhno(newData.phno);
     setDate(newData.date);
     setAddress(newData.address);
-    setGender(newData.address);
+    setGender(newData.gender);
     setStatus(newData.status);
     setBreed(newData.breed);
     setEditId(id);

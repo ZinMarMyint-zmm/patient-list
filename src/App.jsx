@@ -24,7 +24,7 @@ function App() {
       status: "pickyeater",
       pawRent: "Kabyar",
       breed: "spaniel",
-      gender: "male",
+      gender: "female",
       date: "2022-12-12",
       phno: "09334466887",
       address: "Mandalay",

@@ -4,9 +4,9 @@ import { DataContext } from "../App";
 import { TableContext } from "./Table";
 
 const EditModal = () => {
-  const [datas, setDatas, showModal, setShowModal] = useContext(DataContext);
+  const [datas, setDatas] = useContext(DataContext);
   const [
-    showEditModal,
+    ,
     setShowEditModal,
     petName,
     setPetName,
@@ -25,7 +25,6 @@ const EditModal = () => {
     breed,
     setBreed,
     editId,
-    setEditId,
   ] = useContext(TableContext);
 
   const handleUpdate = (e) => {
@@ -41,6 +40,7 @@ const EditModal = () => {
       status,
       breed,
     };
+    console.log(newData);
     const newList = datas.map((p) => {
       if (p.id === editId) {
         p = { ...newData };
@@ -49,6 +49,7 @@ const EditModal = () => {
       return p;
     });
     setDatas([...newList]);
+    setShowEditModal(false);
   };
   return (
     <div>
@@ -102,9 +103,10 @@ const EditModal = () => {
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                   >
-                    <option value="default"></option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </>
                   </select>
                 </div>
 

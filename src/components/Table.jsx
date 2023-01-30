@@ -5,7 +5,7 @@ import { DataContext } from "../App";
 import EditModal from "./EditModal";
 export const TableContext = createContext();
 const Table = () => {
-  const [datas, setDatas] = useContext(DataContext);
+  const [datas] = useContext(DataContext);
   const [showEditModal, setShowEditModal] = useState(false);
 
   const [petName, setPetName] = useState("");
