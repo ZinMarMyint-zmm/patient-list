@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { DataContext } from "../App";
+import { useStateContext } from "../context/StateContext";
 import { TableContext } from "./Table";
 
 const EditModal = () => {
-  const [datas, setDatas] = useContext(DataContext);
+  const {
+    state: { datas },
+    setDataList,
+  } = useStateContext();
   const [
     ,
     setShowEditModal,
@@ -41,7 +44,7 @@ const EditModal = () => {
       status,
       breed,
     };
-    console.log(newData);
+
     const newList = datas.map((p) => {
       if (p.id === editId) {
         p = { ...newData };
@@ -49,7 +52,7 @@ const EditModal = () => {
       }
       return p;
     });
-    setDatas([...newList]);
+    setDataList([...newList]);
     axios.put(`http://localhost:3000/datas/${editId}`, newData);
     setShowEditModal(false);
   };

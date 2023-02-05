@@ -4,11 +4,15 @@ import add from "../assets/add.png";
 import Form from "./Form";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { DataContext } from "../App";
+import { useStateContext } from "../context/StateContext";
 
-const Modal = ({ datas }) => {
-  // const [showModal, setShowModal] = useState(false);
-  const [, , showModal, setShowModal] = useContext(DataContext);
+const Modal = () => {
+  const {
+    state: { datas },
+    showModal,
+    setShowModal,
+  } = useStateContext();
+
   return (
     <>
       <button

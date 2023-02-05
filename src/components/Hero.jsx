@@ -2,12 +2,12 @@ import "../index.css";
 import Heading from "./Heading";
 import Table from "./Table";
 
-const Hero = ({ datas }) => {
+const Hero = () => {
   return (
     <div className="bg-orange-100 p-4">
       <div className="bg-white py-5">
-        <Heading datas={datas} />
-        <Table datas={datas} />
+        <Heading />
+        <Table />
       </div>
     </div>
   );

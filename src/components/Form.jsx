@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { useState } from "react";
-import { DataContext } from "../App";
+import { useStateContext } from "../context/StateContext";
 
 const Form = ({ onClose }) => {
   const [petName, setPetName] = useState("");
@@ -12,12 +12,16 @@ const Form = ({ onClose }) => {
   const [gender, setGender] = useState("default");
   const [status, setStatus] = useState("default");
   const [breed, setBreed] = useState("default");
-  const [datas, setDatas] = useContext(DataContext);
+  const {
+    state: { datas },
+    setDataList,
+  } = useStateContext();
 
   const handleSave = (e) => {
     e.preventDefault();
     const data = {};
     data.id = datas.length + 1;
+    console.log(data.id);
     data.petName = petName;
     data.pawRent = pawRent;
     data.phno = phno;
@@ -26,8 +30,9 @@ const Form = ({ onClose }) => {
     data.gender = gender;
     data.status = status;
     data.breed = breed;
-    setDatas([...datas, data]);
+    setDataList([...datas, data]);
     axios.post("http://localhost:3000/datas", data);
+    onClose();
   };
 
   const handleClose = () => {
@@ -94,7 +99,7 @@ const Form = ({ onClose }) => {
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
-                <option value="default">Select choose status</option>
+                <option value="">Select choose status</option>
                 <option value="allergy">Allergy</option>
                 <option value="pickyeater">PickyEater</option>
               </select>
@@ -108,7 +113,7 @@ const Form = ({ onClose }) => {
                 value={breed}
                 onChange={(e) => setBreed(e.target.value)}
               >
-                <option value="default">please choose status</option>
+                <option value="">please choose status</option>
                 <option value="beagle">Beagle</option>
                 <option value="spaniel">Spaniel</option>
                 <option value="goldenretriever">Golden Retriever</option>

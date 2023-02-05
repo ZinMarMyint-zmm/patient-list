@@ -1,16 +1,18 @@
-import React, { createContext } from "react";
+import React from "react";
 import { useState } from "react";
 import more from "../assets/more.png";
 import del from "../assets/delete.png";
 import edit from "../assets/edit.png";
 import { useContext } from "react";
-import { DataContext } from "../App";
 import { TableContext } from "./Table";
-import Swal from "sweetalert2";
 import axios from "axios";
+import { useStateContext } from "../context/StateContext";
 
 const MoreModal = ({ id }) => {
-  const [datas, setDatas] = useContext(DataContext);
+  const {
+    state: { datas },
+    setDataList,
+  } = useStateContext();
   const [moreModal, setMoreModal] = useState(false);
   const [
     ,
@@ -36,19 +38,8 @@ const MoreModal = ({ id }) => {
   ] = useContext(TableContext);
 
   const handleDelete = () => {
-    Swal.fire({
-      title: "Are you sure want to Delete?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#54BAB9",
-      confirmButtonText: "Delete",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setDatas(datas.filter((i) => i.id != id));
-        axios.delete(`http://localhost:3000/datas/${id}`);
-      }
-    });
+    setDataList(datas.filter((i) => i.id != id));
+    axios.delete(`http://localhost:3000/datas/${id}`);
   };
 
   const handleEdit = () => {

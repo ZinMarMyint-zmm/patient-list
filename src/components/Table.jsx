@@ -1,11 +1,13 @@
 import React, { createContext, useState } from "react";
 import MoreModal from "./MoreModal";
-import { useContext } from "react";
-import { DataContext } from "../App";
 import EditModal from "./EditModal";
+import { useStateContext } from "../context/StateContext";
 export const TableContext = createContext();
+
 const Table = () => {
-  const [datas] = useContext(DataContext);
+  const {
+    state: { datas },
+  } = useStateContext();
   const [showEditModal, setShowEditModal] = useState(false);
 
   const [petName, setPetName] = useState("");
@@ -14,8 +16,8 @@ const Table = () => {
   const [date, setDate] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("default");
-  const [status, setStatus] = useState("default");
-  const [breed, setBreed] = useState("default");
+  const [status, setStatus] = useState("");
+  const [breed, setBreed] = useState("");
   const [editId, setEditId] = useState(null);
 
   return (
