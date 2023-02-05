@@ -7,8 +7,6 @@ import { useStateContext } from "../context/StateContext";
 const Heading = ({ search, setSearch, filterValue, setFilterValue }) => {
   const {
     state: { datas },
-    dataList,
-    setDataList,
   } = useStateContext();
 
   return (

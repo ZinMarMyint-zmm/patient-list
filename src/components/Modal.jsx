@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import close from "../assets/close.png";
+import React from "react";
 import add from "../assets/add.png";
 import Form from "./Form";
-import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStateContext } from "../context/StateContext";
 
