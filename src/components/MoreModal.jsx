@@ -4,7 +4,7 @@ import more from "../assets/more.png";
 import del from "../assets/delete.png";
 import edit from "../assets/edit.png";
 import { useContext } from "react";
-import { TableContext } from "./Table";
+import { TableContext } from "../Table/DataTable";
 import axios from "axios";
 import { useStateContext } from "../context/StateContext";
 

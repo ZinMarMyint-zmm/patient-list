@@ -2,7 +2,7 @@
   "datas": [
     {
       "id": 1,
-      "petName": "Miki",
+      "petName": "Miki update",
       "pawRent": "Hla Hla",
       "phno": "09335436887",
       "date": "2022-12-12",
@@ -46,11 +46,11 @@
     },
     {
       "id": 5,
-      "petName": "Milo",
-      "pawRent": "Cream",
-      "phno": "09765437867",
-      "date": "2023-02-10",
-      "address": "Mawlamyine",
+      "petName": "ahghakj update",
+      "pawRent": "ahgkjah",
+      "phno": "09876543214",
+      "date": "2023-02-07",
+      "address": "Yangon",
       "gender": "male",
       "status": "allergy",
       "breed": "goldenretriever"

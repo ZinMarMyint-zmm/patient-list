@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStateContext } from "../context/StateContext";
-import { TableContext } from "./Table";
+import { TableContext } from "../Table/DataTable";
 
 const EditModal = () => {
   const {

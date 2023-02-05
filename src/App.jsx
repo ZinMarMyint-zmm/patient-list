@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import DataTable from "./Table/DataTable";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <div>
         <Navbar />
 
-        <Hero />
+        <DataTable />
       </div>
     </div>
   );
