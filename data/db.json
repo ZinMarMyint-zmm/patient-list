@@ -2,14 +2,14 @@
   "datas": [
     {
       "id": 1,
-      "petName": "Miki update",
-      "pawRent": "Hla Hla",
-      "phno": "09335436887",
+      "petName": "Jaki",
+      "pawRent": "Kabyar",
+      "phno": "09334466887",
       "date": "2022-12-12",
-      "address": "Kyaikkhami",
-      "gender": "male",
+      "address": "Mandalay",
+      "gender": "female",
       "status": "allergy",
-      "breed": "spaniel"
+      "breed": "goldenretriever"
     },
     {
       "id": 2,
@@ -35,25 +35,25 @@
     },
     {
       "id": 4,
-      "petName": "Milk",
-      "pawRent": "Milo",
-      "phno": "09876543",
-      "date": "2023-02-01",
-      "address": "Yangon",
-      "gender": "male",
+      "petName": "ajkgjalk",
+      "pawRent": "jgklak",
+      "phno": "0976543278",
+      "date": "2023-02-06",
+      "address": "ajkgjakgj",
+      "gender": "female",
       "status": "pickyeater",
-      "breed": "spaniel"
+      "breed": "beagle"
     },
     {
       "id": 5,
-      "petName": "ahghakj update",
-      "pawRent": "ahgkjah",
-      "phno": "09876543214",
-      "date": "2023-02-07",
-      "address": "Yangon",
-      "gender": "male",
+      "petName": "lajgjslkgj",
+      "pawRent": "gan,g",
+      "phno": "aglkag",
+      "date": "2023-02-05",
+      "address": "gkakj",
+      "gender": "female",
       "status": "allergy",
-      "breed": "goldenretriever"
+      "breed": "spaniel"
     }
   ]
 }

@@ -1,5 +1,7 @@
+import Swal from "sweetalert2";
 import axios from "axios";
 import React, { useContext } from "react";
+import { v4 } from "uuid";
 import { useState } from "react";
 import { useStateContext } from "../context/StateContext";
 
@@ -20,7 +22,7 @@ const Form = ({ onClose }) => {
   const handleSave = (e) => {
     e.preventDefault();
     const data = {};
-    data.id = datas.length + 1;
+    data.id = v4().substring(0, 2);
     console.log(data.id);
     data.petName = petName;
     data.pawRent = pawRent;
@@ -32,7 +34,7 @@ const Form = ({ onClose }) => {
     data.breed = breed;
     setDataList([...datas, data]);
     axios.post("http://localhost:3000/datas", data);
-    onClose();
+    Swal.fire("Inserted Successfully", onClose());
   };
 
   const handleClose = () => {

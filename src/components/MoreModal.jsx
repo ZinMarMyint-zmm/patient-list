@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import React from "react";
 import { useState } from "react";
 import more from "../assets/more.png";
@@ -38,8 +39,20 @@ const MoreModal = ({ id }) => {
   ] = useContext(TableContext);
 
   const handleDelete = () => {
-    setDataList(datas.filter((i) => i.id != id));
-    axios.delete(`http://localhost:3000/datas/${id}`);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to delete it!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#54BAB9",
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setDataList(datas.filter((i) => i.id != id));
+        axios.delete(`http://localhost:3000/datas/${id}`);
+      }
+    });
   };
 
   const handleEdit = () => {
@@ -84,6 +97,7 @@ const MoreModal = ({ id }) => {
                     <img src={del} alt="" />
                     Delete
                   </button>
+                  {/* popup modal for delete */}
                 </div>
               </div>
             </div>
