@@ -3,8 +3,8 @@ import DataTable from "./Table/DataTable";
 
 function App() {
   return (
-    <div className="">
-      <div>
+    <div>
+      <div className="">
         <Navbar />
 
         <DataTable />

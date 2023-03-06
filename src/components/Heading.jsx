@@ -10,7 +10,7 @@ const Heading = ({ search, setSearch, filterValue, setFilterValue }) => {
   } = useStateContext();
 
   return (
-    <div className=" container mx-auto my-5">
+    <div className=" container my-5">
       <p className="text-topbar font-semibold">Patient List</p>
 
       <div className="flex justify-between">

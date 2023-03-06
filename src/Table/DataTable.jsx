@@ -55,9 +55,9 @@ const DataTable = () => {
     {
       Header: "Date",
       accessor: "date",
-      Cell: ({ value }) => {
-        return format(new Date(value), "dd/MM/yyyy");
-      },
+      // Cell: ({ value }) => {
+      //   return format(new Date(value), "dd/MM/yyyy");
+      // },
     },
     {
       Header: "Phone",
@@ -101,7 +101,7 @@ const DataTable = () => {
   const { globalFilter } = state;
 
   return (
-    <div>
+    <div className="px-[100px]">
       <Heading
         search={globalFilter}
         setSearch={setGlobalFilter}
@@ -133,7 +133,7 @@ const DataTable = () => {
       >
         <table
           {...getTableProps()}
-          className="table-auto w-full text-sm text-left px-3"
+          className="table-auto w-full text-sm text-center"
         >
           <thead className="text-sm font-semibold text-topbar">
             {headerGroups.map((headerGroup) => (

@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStateContext } from "../context/StateContext";
 import { TableContext } from "../Table/DataTable";
+// import { useForm } from "react-hook-form";
 
 const EditModal = () => {
   const {
@@ -10,7 +11,7 @@ const EditModal = () => {
     setDataList,
   } = useStateContext();
   const [
-    ,
+    showEditModal,
     setShowEditModal,
     petName,
     setPetName,
@@ -79,29 +80,35 @@ const EditModal = () => {
             <form className="text-xs mx-5">
               <div className="columns-2">
                 <div className="mb-3">
-                  <label htmlFor="">Pet Name</label>
+                  <label htmlFor="" className="float-left">
+                    Pet Name
+                  </label>
                   <br />
                   <input
                     value={petName}
                     onChange={(e) => setPetName(e.target.value)}
                     type="text"
-                    className="border w-[180px] h-6 border-topbar"
+                    className="pl-3 border w-[180px] h-6 border-topbar"
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Pawrent</label>
+                  <label htmlFor="" className="float-left">
+                    Pawrent
+                  </label>
                   <br />
                   <input
                     value={pawRent}
                     onChange={(e) => setPawrent(e.target.value)}
                     type="text"
-                    className="border w-[180px] h-6 border-topbar"
+                    className="pl-3 border w-[180px] h-6 border-topbar"
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Gender</label>
+                  <label htmlFor="" className="float-left">
+                    Gender
+                  </label>
                   <br />
                   <select
                     className="border w-[180px] h-6 border-topbar"
@@ -116,18 +123,22 @@ const EditModal = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Contact Phone No.</label>
+                  <label htmlFor="" className="float-left">
+                    Contact Phone No.
+                  </label>
                   <br />
                   <input
                     value={phno}
                     onChange={(e) => setPhno(e.target.value)}
                     type="text"
-                    className="border w-[180px] h-6 border-topbar"
+                    className="pl-3 border w-[180px] h-6 border-topbar"
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Status</label>
+                  <label htmlFor="" className="float-left">
+                    Status
+                  </label>
                   <br />
                   <select
                     className="border w-[180px] h-6 border-topbar"
@@ -141,7 +152,9 @@ const EditModal = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Breed</label>
+                  <label htmlFor="" className="float-left">
+                    Breed
+                  </label>
                   <br />
                   <select
                     className="border w-[180px] h-6 border-topbar"
@@ -156,24 +169,28 @@ const EditModal = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Date of Birth</label>
+                  <label htmlFor="" className="float-left">
+                    Date of Birth
+                  </label>
                   <br />
                   <input
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     type="date"
-                    className="border w-[180px] h-6 border-topbar"
+                    className="pl-3 border w-[180px] h-6 border-topbar"
                   />
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="">Address</label>
+                  <label htmlFor="" className="float-left">
+                    Address
+                  </label>
                   <br />
                   <input
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     type="text"
-                    className="border w-[180px] h-6 border-topbar"
+                    className="pl-3 border w-[180px] h-6 border-topbar"
                   />
                 </div>
               </div>

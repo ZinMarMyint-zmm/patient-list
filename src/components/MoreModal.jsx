@@ -73,7 +73,11 @@ const MoreModal = ({ id }) => {
 
   return (
     <div>
-      <div type="button" onClick={() => setMoreModal(!moreModal)}>
+      <div
+        type="button"
+        className="flex align-middle justify-center"
+        onClick={() => setMoreModal(!moreModal)}
+      >
         <img src={more} className="w-5 h-5" alt="" />
 
         {moreModal && (
